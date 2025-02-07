@@ -1,0 +1,39 @@
+keycloak:
+  issuer-uri: https://keycloak.bip.test/realms/rius
+
+spring:
+  application:
+    name: nexus-gateway
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
+      routes:
+        - id: dgsia-gateway-api
+          uri: https://nexus.bip.test
+          predicates:
+            - Path=/**
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: web_app
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${keycloak.issuer-uri}
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.issuer-uri}
+          jwk-set-uri: ${keycloak.issuer-uri}/protocol/openid-connect/certs
+          
+gateway-api:
+  cors:
+    enabled: true
+    allowedOrigin: http://127.0.0.1:8080
+  authentication:
+    enabled: true
