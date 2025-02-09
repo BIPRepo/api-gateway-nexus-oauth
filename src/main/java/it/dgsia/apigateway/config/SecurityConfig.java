@@ -1,5 +1,8 @@
 package it.dgsia.apigateway.config;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +19,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsConfigurationSource;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 @Configuration
 @EnableWebFluxSecurity
 @EnableReactiveMethodSecurity(useAuthorizationManager=true)
@@ -32,12 +32,6 @@ public class SecurityConfig {
 
     @Value("${gateway-api.cors.enabled:false}")
     private boolean corsEnabled;
-
-    private final JwtAuthConverter jwtAuthConverter;
-
-    public SecurityConfig(JwtAuthConverter jwtAuthConverter){
-        this.jwtAuthConverter = jwtAuthConverter;
-    }
 
     @Bean
     SecurityWebFilterChain springWebFilterChain(ServerHttpSecurity http) {
@@ -55,14 +49,11 @@ public class SecurityConfig {
         if (authEnabled) {
             http.authorizeExchange((authorize) -> authorize
                     .anyExchange().authenticated())
-                    .oauth2ResourceServer(oauth2 -> oauth2
-                    		.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter)))
-                    .oauth2Login(Customizer.withDefaults());
+            		.oauth2Login(Customizer.withDefaults()) // Aggiungi questa riga per OAuth2 login
+            		.oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults())); // Configura JWT per le risorse protette
         } else {
         	http.authorizeExchange((authorize) -> authorize.anyExchange().permitAll());
         }
-        
-         // Abilita il login automatico via OAuth2
         
         return http.build();
     }
