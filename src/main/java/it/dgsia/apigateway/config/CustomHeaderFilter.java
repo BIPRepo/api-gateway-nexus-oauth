@@ -19,6 +19,8 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 
 	public static final String CACHE_USERS_KEY = "users";
 	private static final String X_CUSTOM_HEADER = "X-Keycloak-Sec-Auth";
+	private static final String AUTHORIZATION_HEADER = "X-Keycloak-Sec-Auth";
+	private static final String AUTH_PREFIX = "Bearer ";
 	private static final String ACCESSO_NEGATO_UTENTE_NON_ATTIVO = "Accesso negato: utente non attivo";
 	private final ServerOAuth2AuthorizedClientRepository authorizedClientRepository;
 
@@ -38,7 +40,7 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 
 				ServerWebExchange modifiedExchange = exchange.mutate().request(request -> request.headers(headers -> {
 					headers.add(X_CUSTOM_HEADER, jwtStr);
-					headers.add("Authorization", "Bearer " + jwtStr);
+					headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
 				})).build();
 
 				return chain.filter(modifiedExchange);
