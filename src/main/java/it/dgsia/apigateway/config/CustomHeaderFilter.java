@@ -36,10 +36,12 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 			if (principal instanceof JwtAuthenticationToken) {
 				JwtAuthenticationToken jwtAuthToken = (JwtAuthenticationToken) principal;
 				Jwt jwt = jwtAuthToken.getToken();
-				String jwtStr = jwt.getSubject() + ":" + jwt.getTokenValue();
+				String username = jwt.getSubject();
+				String jwtStr = jwt.getTokenValue();
+				String jwtKeycloak = username + ":" + jwtStr;
 
 				ServerWebExchange modifiedExchange = exchange.mutate().request(request -> request.headers(headers -> {
-					headers.add(X_CUSTOM_HEADER, jwtStr);
+					headers.add(X_CUSTOM_HEADER, jwtKeycloak);
 					headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
 				})).build();
 
@@ -50,11 +52,12 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 				return authorizedClientRepository
 						.loadAuthorizedClient(jwtAuthToken.getAuthorizedClientRegistrationId(), jwtAuthToken, exchange)
 						.flatMap(authorizedClient -> {
-							String jwt = authorizedClient.getAccessToken().getTokenValue();
+							String username = jwtAuthToken.getPrincipal().getName();
+							String jwtStr = authorizedClient.getAccessToken().getTokenValue();
 							ServerWebExchange modifiedExchange = exchange.mutate()
 									.request(request -> request.headers(headers -> {
-										headers.add(X_CUSTOM_HEADER, jwt);
-										headers.add("Authorization", "Bearer " + jwt);
+										headers.add(X_CUSTOM_HEADER, username + ":" + jwtStr);
+										headers.add(AUTHORIZATION_HEADER, jwtStr);
 									})).build();
 
 							return chain.filter(modifiedExchange);
