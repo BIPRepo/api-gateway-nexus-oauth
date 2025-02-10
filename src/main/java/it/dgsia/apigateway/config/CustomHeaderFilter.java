@@ -57,7 +57,7 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 							ServerWebExchange modifiedExchange = exchange.mutate()
 									.request(request -> request.headers(headers -> {
 										headers.add(X_CUSTOM_HEADER, username + ":" + jwtStr);
-										headers.add(AUTHORIZATION_HEADER, jwtStr);
+										headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
 									})).build();
 
 							return chain.filter(modifiedExchange);
