@@ -1,5 +1,8 @@
 keycloak:
-  issuer-uri: https://keycloak.bip.test/realms/rius
+  issuer-uri: http://localhost:8080/realms/nexus_test
+
+server:
+  port: 8082
 
 spring:
   application:
@@ -11,11 +14,11 @@ spring:
           useInsecureTrustManager: true
       routes:
         - id: dgsia-gateway-api
-          uri: https://nexus.bip.test
+          uri: http://localhost:8081
           predicates:
             - Path=/**
           filters:
-          - AddResponseHeader=Content-Security-Policy, frame-ancestors 'self' http://127.0.0.1:8080
+          - AddResponseHeader=Content-Security-Policy, frame-ancestors 'self' http://localhost:8082
           - CustomHeaderFilter
 
   security:
@@ -23,7 +26,8 @@ spring:
       client:
         registration:
           keycloak:
-            client-id: web_app
+            client-id: nexus3
+            client-secret: 6DNjOj8zpbTXh33sPKB6DgL76fWXRK8h
             authorization-grant-type: authorization_code
             scope: openid
         provider:
@@ -36,7 +40,7 @@ spring:
           
 gateway-api:
   cors:
-    enabled: false
-    allowedOrigin: http://127.0.0.1:8080
+    enabled: true
+    allowedOrigin: http://localhost:8082
   authentication:
     enabled: true

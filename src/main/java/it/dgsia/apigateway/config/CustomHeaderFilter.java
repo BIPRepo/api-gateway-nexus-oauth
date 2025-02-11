@@ -34,6 +34,7 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 		return (exchange, chain) -> exchange.getPrincipal().flatMap(principal -> {
 
 			if (principal instanceof JwtAuthenticationToken) {
+				// log.info("JWT auth");
 				JwtAuthenticationToken jwtAuthToken = (JwtAuthenticationToken) principal;
 				Jwt jwt = jwtAuthToken.getToken();
 				String username = jwt.getSubject();
@@ -42,12 +43,15 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 
 				ServerWebExchange modifiedExchange = exchange.mutate().request(request -> request.headers(headers -> {
 					headers.add(X_CUSTOM_HEADER, jwtKeycloak);
-					headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
+					// headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
+					headers.add("X-Auth-Username", username);
+					headers.add("X-Auth-Token", jwtStr);
 				})).build();
 
 				return chain.filter(modifiedExchange);
 
 			} else if (principal instanceof OAuth2AuthenticationToken) {
+				// log.info("oauth auth");
 				OAuth2AuthenticationToken jwtAuthToken = (OAuth2AuthenticationToken) principal;
 				return authorizedClientRepository
 						.loadAuthorizedClient(jwtAuthToken.getAuthorizedClientRegistrationId(), jwtAuthToken, exchange)
@@ -57,13 +61,16 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 							ServerWebExchange modifiedExchange = exchange.mutate()
 									.request(request -> request.headers(headers -> {
 										headers.add(X_CUSTOM_HEADER, username + ":" + jwtStr);
-										headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
+										headers.add("X-Auth-Username", username);
+										headers.add("X-Auth-Token", jwtStr);
+										// headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
 									})).build();
 
 							return chain.filter(modifiedExchange);
 						});
 			} else {
 				// Caso predefinito: nessun JWT
+				// log.info("no jwt");
 				return Mono.error(new UnauthorizedAccessException(ACCESSO_NEGATO_UTENTE_NON_ATTIVO));
 			}
 		});

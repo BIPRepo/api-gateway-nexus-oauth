@@ -1,0 +1,10 @@
+{
+  "realm": "nexus_test",
+  "auth-server-url": "http://keycloak:8080/auth",
+  "ssl-required": "external",
+  "resource": "nexus3",
+  "credentials": {
+    "secret": "6DNjOj8zpbTXh33sPKB6DgL76fWXRK8h"
+  },
+  "policy-enforcer": {}
+}
