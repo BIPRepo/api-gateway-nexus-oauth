@@ -2,19 +2,19 @@
 <metadata modelVersion="1.1.0">
   <groupId>org.github.flytreeleft</groupId>
   <artifactId>nexus3-keycloak-plugin</artifactId>
-  <version>0.6.0-SNAPSHOT</version>
   <versioning>
+    <lastUpdated>20250213092124</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
-    <lastUpdated>20210808134610</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>features</classifier>
         <extension>xml</extension>
         <value>0.6.0-SNAPSHOT</value>
-        <updated>20210808134610</updated>
+        <updated>20250213092124</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
+  <version>0.6.0-SNAPSHOT</version>
 </metadata>

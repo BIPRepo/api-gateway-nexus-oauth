@@ -13,6 +13,7 @@ services:
     environment:
     #  imposta credenziali admin:admin
       - NEXUS_SECURITY_RANDOMPASSWORD=false
+      - NEXUS_SECURITY_INITIAL_PASSWORD=admin
     networks:
       - dockernet
     restart: always

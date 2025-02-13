@@ -43,7 +43,7 @@ osgi.wiring.package; (&(osgi.wiring.package=org.sonatype.goodies.lifecycle)(vers
 osgi.wiring.package; (&(osgi.wiring.package=com.google.common.eventbus)(version>=32.1.0))
 27; version=32.1.2
 osgi.wiring.package; (&(osgi.wiring.package=org.codehaus.groovy.runtime)(version>=3.0.0))
-132; version=3.0.19
+129; version=3.0.19
 osgi.wiring.package; (&(osgi.wiring.package=groovy.transform)(version>=3.0.0))
 122; version=3.0.19
 osgi.wiring.package; (&(osgi.wiring.package=org.sonatype.nexus.repository.ossindex)(version>=3.74.0))

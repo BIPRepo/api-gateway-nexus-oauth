@@ -133,7 +133,7 @@ osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.9.0))
 osgi.wiring.package; (&(osgi.wiring.package=org.apache.shiro.authc)(version>=1.13.0))
 158; version=1.13.0
 osgi.wiring.package; (&(osgi.wiring.package=org.codehaus.groovy.runtime)(version>=3.0.0))
-132; version=3.0.19
+129; version=3.0.19
 osgi.wiring.package; (&(osgi.wiring.package=com.google.common.collect)(version>=32.1.0))
 27; version=32.1.2
 osgi.wiring.package; (&(osgi.wiring.package=org.sonatype.nexus.common.wonderland)(version>=3.74.0))
