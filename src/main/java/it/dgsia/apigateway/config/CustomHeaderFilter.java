@@ -42,10 +42,10 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 				String jwtKeycloak = username + ":" + jwtStr;
 
 				ServerWebExchange modifiedExchange = exchange.mutate().request(request -> request.headers(headers -> {
-					headers.add(X_CUSTOM_HEADER, jwtKeycloak);
+					//headers.add(X_CUSTOM_HEADER, jwtKeycloak);
 					// headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
-					headers.add("X-Auth-Username", username);
-					headers.add("X-Auth-Token", jwtStr);
+					//headers.add("X-Auth-Username", username);
+					//headers.add("X-Auth-Token", jwtStr);
 				})).build();
 
 				return chain.filter(modifiedExchange);
@@ -61,9 +61,9 @@ public class CustomHeaderFilter extends AbstractGatewayFilterFactory<CustomHeade
 							ServerWebExchange modifiedExchange = exchange.mutate()
 									.request(request -> request.headers(headers -> {
 										headers.add(X_CUSTOM_HEADER, username + ":" + jwtStr);
-										// headers.add("X-Auth-Username", username);
-										// headers.add("X-Auth-Token", jwtStr);
-										// headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
+										//headers.add("X-Auth-Username", username);
+										//headers.add("X-Auth-Token", jwtStr);
+										//headers.add(AUTHORIZATION_HEADER, AUTH_PREFIX + jwtStr);
 										log.info(jwtStr);
 									})).build();
 

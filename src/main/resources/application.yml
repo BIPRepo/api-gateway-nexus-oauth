@@ -1,5 +1,5 @@
 keycloak:
-  issuer-uri: http://localhost:8080/realms/nexus_test
+  issuer-uri: http://keycloak:8080/realms/nexus_test
 
 server:
   port: 8082
@@ -14,7 +14,7 @@ spring:
           useInsecureTrustManager: true
       routes:
         - id: dgsia-gateway-api
-          uri: http://localhost:8081
+          uri: http://nexus-test-ld:8081
           predicates:
             - Path=/**
           filters:
