@@ -88,6 +88,13 @@ java -jar api-gateway-0.0.1-SNAPSHOT.jar
    - **Password:** `admin`
 3. Dopo l'autenticazione, si verrà reindirizzati a Nexus Repository Manager con utenza myuser e privilegi di amministratore.
 
+4. Per effettuare l'accesso a keycloak aprire un altra finestra browser ed accedere a:
+   ```
+   http://keycloak:8080
+   ```
+5. Immettere le seguenti credenziali:
+   - **Username:** `admin`
+   - **Password:** `admin`
 ---
 
 📌 *Nota*: Questo setup è pensato per ambienti di test. Per un'installazione in produzione, applicare politiche di sicurezza adeguate ai permessi, alla configurazione di Keycloak e alla gestione delle credenziali.
