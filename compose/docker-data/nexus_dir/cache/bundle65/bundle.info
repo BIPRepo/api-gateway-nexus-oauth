@@ -1,6 +1,6 @@
 65
-reference:file:/opt/sonatype/nexus/system/org/apache/karaf/jaas/org.apache.karaf.jaas.command/4.3.9/org.apache.karaf.jaas.command-4.3.9.jar
+mvn:org.sonatype.nexus/nexus-bootstrap/3.22.0-02
 32
-30
-1739438560362
+80
+1739800368623
 0

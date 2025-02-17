@@ -1,6 +1,6 @@
 48
-reference:file:/opt/sonatype/nexus/system/org/apache/karaf/features/org.apache.karaf.features.core/4.3.9/org.apache.karaf.features.core-4.3.9.jar
+reference:file:system/org/apache/karaf/features/org.apache.karaf.features.command/4.2.6/org.apache.karaf.features.command-4.2.6.jar
 32
-15
-1739438560229
+30
+1739800365735
 0

@@ -1,6 +1,6 @@
 36
-reference:file:/opt/sonatype/nexus/system/org/osgi/org.osgi.util.promise/1.2.0/org.osgi.util.promise-1.2.0.jar
+reference:file:system/org/sonatype/nexus/nexus-task-logging/3.22.0-02/nexus-task-logging-3.22.0-02.jar
 32
-9
-1739438560153
+8
+1739800365408
 0

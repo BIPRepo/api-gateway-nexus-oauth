@@ -32,12 +32,12 @@ NX.direct.api.REMOTING_API = {
         formHandler: false
       },
       {
-        name: 'disable',
+        name: 'enable',
         len: 1,
         formHandler: false
       },
       {
-        name: 'enable',
+        name: 'disable',
         len: 1,
         formHandler: false
       },
@@ -109,11 +109,6 @@ NX.direct.api.REMOTING_API = {
         name: 'read',
         len: 0,
         formHandler: false
-      },
-      {
-        name: 'readCapabilitiesStatus',
-        len: 1,
-        formHandler: false
       }
     ],
     rapture_State: [
@@ -121,11 +116,6 @@ NX.direct.api.REMOTING_API = {
     coreui_Blobstore: [
       {
         name: 'fillPolicies',
-        len: 0,
-        formHandler: false
-      },
-      {
-        name: 'ReadNoneGroupEntriesIncludingEntryForAll',
         len: 0,
         formHandler: false
       },
@@ -253,12 +243,12 @@ NX.direct.api.REMOTING_API = {
     ],
     coreui_Component: [
       {
-        name: 'readAsset',
+        name: 'canDeleteAsset',
         len: 2,
         formHandler: false
       },
       {
-        name: 'canDeleteAsset',
+        name: 'readAsset',
         len: 2,
         formHandler: false
       },
@@ -352,7 +342,7 @@ NX.direct.api.REMOTING_API = {
         formHandler: false
       },
       {
-        name: 'getProxyDownloadNumbers',
+        name: 'isAvailableLog4jDisclaimer',
         len: 0,
         formHandler: false
       }
@@ -513,6 +503,23 @@ NX.direct.api.REMOTING_API = {
         name: 'authenticationToken',
         len: 2,
         formHandler: false
+      }
+    ],
+    licensing_Licensing: [
+      {
+        name: 'read',
+        len: 0,
+        formHandler: false
+      },
+      {
+        name: 'uninstall',
+        len: 1,
+        formHandler: false
+      },
+      {
+        name: 'install',
+        len: 1,
+        formHandler: true
       }
     ],
     migration_Repository: [
@@ -710,12 +717,19 @@ NX.direct.api.REMOTING_API = {
     ],
     ssl_Certificate: [
       {
-        name: 'retrieveFromHost',
-        len: 3,
+        name: 'details',
+        len: 1,
         formHandler: false
       },
       {
-        name: 'details',
+        name: 'retrieveFromHost',
+        len: 3,
+        formHandler: false
+      }
+    ],
+    proui_Database: [
+      {
+        name: 'resetQuorum',
         len: 1,
         formHandler: false
       }

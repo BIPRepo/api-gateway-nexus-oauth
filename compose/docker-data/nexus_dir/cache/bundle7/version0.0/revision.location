@@ -1,1 +1,1 @@
-reference:file:/opt/sonatype/nexus/system/org/eclipse/jetty/jetty-rewrite/9.4.56.v20240826/jetty-rewrite-9.4.56.v20240826.jar
+reference:file:system/io/dropwizard/metrics/metrics-jetty9/4.1.0/metrics-jetty9-4.1.0.jar

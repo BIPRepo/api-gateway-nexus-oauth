@@ -1,6 +1,6 @@
 64
-reference:file:/opt/sonatype/nexus/system/org/apache/karaf/diagnostic/org.apache.karaf.diagnostic.core/4.3.9/org.apache.karaf.diagnostic.core-4.3.9.jar
+mvn:org.codehaus.plexus/plexus-interpolation/1.24
 32
-30
-1739438560356
+80
+1739800368592
 0

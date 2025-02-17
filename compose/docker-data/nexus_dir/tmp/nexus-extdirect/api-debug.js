@@ -41,12 +41,12 @@ NX.direct.api.REMOTING_API = {
         formHandler: false
       },
       {
-        name: 'disable'/*(String) => void */,
+        name: 'enable'/*(String) => void */,
         len: 1,
         formHandler: false
       },
       {
-        name: 'enable'/*(String) => void */,
+        name: 'disable'/*(String) => void */,
         len: 1,
         formHandler: false
       },
@@ -118,11 +118,6 @@ NX.direct.api.REMOTING_API = {
         name: 'read'/*() => java.util.List */,
         len: 0,
         formHandler: false
-      },
-      {
-        name: 'readCapabilitiesStatus'/*(String) => Boolean */,
-        len: 1,
-        formHandler: false
       }
     ],
     rapture_State: [
@@ -130,11 +125,6 @@ NX.direct.api.REMOTING_API = {
     coreui_Blobstore: [
       {
         name: 'fillPolicies'/*() => java.util.List */,
-        len: 0,
-        formHandler: false
-      },
-      {
-        name: 'ReadNoneGroupEntriesIncludingEntryForAll'/*() => java.util.List */,
         len: 0,
         formHandler: false
       },
@@ -262,12 +252,12 @@ NX.direct.api.REMOTING_API = {
     ],
     coreui_Component: [
       {
-        name: 'readAsset'/*(String, String) => org.sonatype.nexus.coreui.AssetXO */,
+        name: 'canDeleteAsset'/*(String, String) => boolean */,
         len: 2,
         formHandler: false
       },
       {
-        name: 'canDeleteAsset'/*(String, String) => boolean */,
+        name: 'readAsset'/*(String, String) => org.sonatype.nexus.coreui.AssetXO */,
         len: 2,
         formHandler: false
       },
@@ -361,7 +351,7 @@ NX.direct.api.REMOTING_API = {
         formHandler: false
       },
       {
-        name: 'getProxyDownloadNumbers'/*() => String */,
+        name: 'isAvailableLog4jDisclaimer'/*() => String */,
         len: 0,
         formHandler: false
       }
@@ -522,6 +512,23 @@ NX.direct.api.REMOTING_API = {
         name: 'authenticationToken'/*(String, String) => String */,
         len: 2,
         formHandler: false
+      }
+    ],
+    licensing_Licensing: [
+      {
+        name: 'read'/*() => com.sonatype.nexus.licensing.internal.rest.ApiLicenseDetailsXO */,
+        len: 0,
+        formHandler: false
+      },
+      {
+        name: 'uninstall'/*(String) => void */,
+        len: 1,
+        formHandler: false
+      },
+      {
+        name: 'install'/*() => void -- FORM HANDLER */,
+        len: 1,
+        formHandler: true
       }
     ],
     migration_Repository: [
@@ -719,12 +726,19 @@ NX.direct.api.REMOTING_API = {
     ],
     ssl_Certificate: [
       {
-        name: 'retrieveFromHost'/*(String, Integer, String) => com.sonatype.nexus.ssl.plugin.internal.ui.CertificateXO */,
-        len: 3,
+        name: 'details'/*(String) => com.sonatype.nexus.ssl.plugin.internal.ui.CertificateXO */,
+        len: 1,
         formHandler: false
       },
       {
-        name: 'details'/*(String) => com.sonatype.nexus.ssl.plugin.internal.ui.CertificateXO */,
+        name: 'retrieveFromHost'/*(String, Integer, String) => com.sonatype.nexus.ssl.plugin.internal.ui.CertificateXO */,
+        len: 3,
+        formHandler: false
+      }
+    ],
+    proui_Database: [
+      {
+        name: 'resetQuorum'/*(String) => void */,
         len: 1,
         formHandler: false
       }

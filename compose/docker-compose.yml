@@ -6,14 +6,10 @@ services:
       - "8081:8081"
     volumes:
     # nexus-data contiene la persistenza dei dati di nexus
-    #  - "./docker-data/nexus_dir:/nexus-data"
+      - "./docker-data/nexus_dir:/nexus-data"
     # keycloack.json contiene la configurazione di keycloak per il nexus ed è richiesto dal plugin.
       - "./docker-data/keycloak.json:/opt/sonatype/nexus/etc/keycloak.json"
       - "./docker-data/nexus3-keycloak-plugin-0.6.0-SNAPSHOT-bundle.kar:/opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-0.6.0-SNAPSHOT-bundle.kar"
-    #environment:
-    #  imposta credenziali admin:admin
-    # - NEXUS_SECURITY_RANDOMPASSWORD=false
-    #  - NEXUS_SECURITY_INITIAL_PASSWORD=admin
     networks:
       - dockernet
     restart: always

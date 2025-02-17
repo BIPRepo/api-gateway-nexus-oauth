@@ -1,6 +1,6 @@
 56
-reference:file:/opt/sonatype/nexus/system/org/apache/felix/org.apache.felix.scr/2.1.30/org.apache.felix.scr-2.1.30.jar
+reference:file:system/org/apache/karaf/shell/org.apache.karaf.shell.commands/4.2.6/org.apache.karaf.shell.commands-4.2.6.jar
 32
 30
-1739438560292
+1739800365951
 0

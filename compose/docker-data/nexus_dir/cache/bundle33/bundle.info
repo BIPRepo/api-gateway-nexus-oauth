@@ -1,6 +1,6 @@
 33
-reference:file:/opt/sonatype/nexus/system/org/eclipse/jetty/jetty-deploy/9.4.56.v20240826/jetty-deploy-9.4.56.v20240826.jar
+reference:file:system/org/ops4j/pax/logging/pax-logging-api/1.10.0/pax-logging-api-1.10.0.jar
 32
 8
-1739438560134
+1739800365319
 0

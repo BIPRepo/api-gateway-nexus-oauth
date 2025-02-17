@@ -1,6 +1,6 @@
 55
-reference:file:/opt/sonatype/nexus/system/org/apache/karaf/scr/org.apache.karaf.scr.state/4.3.9/org.apache.karaf.scr.state-4.3.9.jar
+reference:file:system/org/apache/karaf/service/org.apache.karaf.service.core/4.2.6/org.apache.karaf.service.core-4.2.6.jar
 32
 30
-1739438560286
+1739800365925
 0

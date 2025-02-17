@@ -1,6 +1,6 @@
 51
-reference:file:/opt/sonatype/nexus/system/org/apache/karaf/deployer/org.apache.karaf.deployer.features/4.3.9/org.apache.karaf.deployer.features-4.3.9.jar
+reference:file:system/org/apache/karaf/jaas/org.apache.karaf.jaas.modules/4.2.6/org.apache.karaf.jaas.modules-4.2.6.jar
 32
-26
-1739438560257
+30
+1739800365816
 0

@@ -1,6 +1,6 @@
 15
-reference:file:/opt/sonatype/nexus/system/org/eclipse/jetty/jetty-http/9.4.56.v20240826/jetty-http-9.4.56.v20240826.jar
+reference:file:system/org/apache/servicemix/bundles/org.apache.servicemix.bundles.javax-inject/1_2/org.apache.servicemix.bundles.javax-inject-1_2.jar
 32
 8
-1739438559979
+1739800364842
 0

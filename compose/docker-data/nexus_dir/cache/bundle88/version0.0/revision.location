@@ -1,1 +1,0 @@
-wrap:file:system/org/apache/shiro/shiro-guice/1.13.0/shiro-guice-1.13.0.jar$overwrite=merge&Import-Package=*

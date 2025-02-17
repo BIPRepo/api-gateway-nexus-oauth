@@ -1,6 +1,6 @@
 34
-reference:file:/opt/sonatype/nexus/system/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar
+reference:file:system/org/sonatype/nexus/nexus-features/3.22.0-02/nexus-features-3.22.0-02.jar
 32
 8
-1739438560140
+1739800365347
 0
