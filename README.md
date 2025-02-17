@@ -77,7 +77,7 @@ cd <repo_dir>/target/
 java -jar api-gateway-0.0.1-SNAPSHOT.jar
 ```
 
-## 🔑 Accesso a Nexus
+## 🔑 Accesso a Nexus e Keycloak
 
 1. Aprire un browser e accedere a:
    ```
